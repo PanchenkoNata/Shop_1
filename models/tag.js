@@ -1,0 +1,17 @@
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const generalSchema = new Schema({
+	name: {
+		type: Schema.Types.String,
+		required: false,
+		trim: true,
+		minlength: 2,
+		maxlength: 20
+	},
+});
+
+const model = mongoose.model('Tag', generalSchema);
+
+module.exports = model;

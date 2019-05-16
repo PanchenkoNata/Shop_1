@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h2><%= title %></h2>
+    <form action="" method="POST" class="form">
+        <input class="" type="email" name="email" placeholder="Your e-mail" minlength="5" maxlength="100" required value="<%= data.email %>">
+        <input class="" type="password" name="password" placeholder="Your password" minlength="4" maxlength="100" required value="">
+        <button class="btn" type="submit">Log In</button>
+        <a class="" href="/signup">Sign Up</a>
+        <button class="btn" type="submit">Log In with Facebook</button>
+    </form>
+  </body>
+</html>

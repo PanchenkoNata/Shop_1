@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+require('config');
+
+const dbRunner = require('./runners/db');
+const webRunner = require('./runners/web');
+
+// set max amound of listeners who can be registered for any single event
+require('events').EventEmitter.defaultMaxListeners = Infinity;
+
+Promise.resolve()
+  .then(dbRunner)
+  .then(webRunner)
+  .then(() => {
+    console.log('====> Ready to work <====');
+  })
+  .catch((err) => {
+    console.log(err);
+    console.log('Run is failed');
+    setTimeout(() => process.exit(1), 15000);
+  });
