@@ -5,6 +5,13 @@
   </head>
   <body>
     <h2><%= title %></h2>
+    
+    <% if (error) { %>
+    <div class="error">
+        <p>Error! <%= error %></p>
+    </div>
+    <% } %>
+
     <form action="" method="POST" class="form">
         <input class="" type="email" name="email" placeholder="Your e-mail" minlength="5" maxlength="100" required value="<%= data.email %>">
         <input class="" type="password" name="password" placeholder="Your password" minlength="4" maxlength="100" required value="">

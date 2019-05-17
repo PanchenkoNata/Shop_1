@@ -44,7 +44,7 @@ const personSchema = new Schema({
 }, {
 	_id: false,
 });
-personSchema.index({ phone: 1, email: 1 }, { unique: true});
+// personSchema.index({ phone: 1, email: 1 }, { unique: true});
 
 // const model = mongoose.model('PersonModel', generalSchema);
 module.exports = personSchema;

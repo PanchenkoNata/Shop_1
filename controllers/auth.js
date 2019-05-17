@@ -6,6 +6,18 @@ const User = require('models/user');
 
 const PersonSchema = require('schemas/person');
 const PasswordSchema = require('schemas/password');
+const LoginSchema = require('schemas/login');
+
+// validate input data
+function validateSchema(schema, obj) {
+	const ajv = new Ajv({ verbose: true });
+	const validObj = ajv.validate(schema, obj);
+
+	if (!validObj) {
+		const errMessage = `${ajv.errors[0].parentSchema.description} ${ajv.errors[0].message}`;
+		throw new Error(errMessage);
+	};
+};
 
 const signupView = async (req, res, next) => {
 	res.render('signup', { title: 'Sign Up', data: {}, error: false });
@@ -26,17 +38,6 @@ const signupAction = async (req, res, next) => {
 	};
 
 	try {
-		// validate input data
-		function validateSchema(schema, obj) {
-			const ajv = new Ajv({ verbose: true });
-			const validObj = ajv.validate(schema, obj);
-
-			if (!validObj) {
-				const errMessage = `${ajv.errors[0].parentSchema.description} ${ajv.errors[0].message}`;
-				throw new Error(errMessage);
-			};
-		};
-
 		validateSchema(PersonSchema, personObj);
 		// ajv = new Ajv({ verbose: true, $data: true });
 		validateSchema(PasswordSchema, passwordObj);
@@ -60,7 +61,12 @@ const signupAction = async (req, res, next) => {
 			},
 		});
 		// const user = await newUser.save();
-		await User.create(newUser);
+		try {
+			await User.create(newUser);
+		} catch (error) {
+			const message = 'User with this email exist. If it is your email, log in, please';
+			res.render('signup', { title: 'Sign Up', data: personObj, error: message, });
+		}
 
 		res.render('success', { title: 'Your singUp is successeful', });
 	} catch (error) {
@@ -68,16 +74,46 @@ const signupAction = async (req, res, next) => {
 	}
 };
 
+const loginView = async (req, res, next) => {
+	res.render('login', { title: 'Sign Up', data: {}, error: false });
+};
 
-// const loginView = async (req, res, next) => {
-// 	res.render('login', { title: 'Sign Up', data: {}, error: false });
-// };
-// const loginAction = async (req, res, next) => {
+const loginAction = async (req, res, next) => {
+	const { email, password, } = req.body;
+	const loginObj = {
+		email: email,
+		password: password,
+	};
 
-// };
-// const signupView = async (req, res, next) => {
+	try {
+		validateSchema(LoginSchema, loginObj);
 
-// };
+		const user = await User.findOne({ 'person.email': email, });
+		if (!user) {
+			throw new Error('User with this email doesn`t exist. Please, will register');
+		};
+
+		const isPasswordTrue = await bcrypt.compare(password, user.person.password);
+		if (!isPasswordTrue) {
+			throw new Error('You input wrong password');
+		};
+
+		req.session.userId = user.id;
+		console.log('Login is OK');
+		res.redirect('/home');
+
+	} catch (error) {
+		console.log(error.message);
+		res.render('login', { title: 'Sign Up', data: {}, error: error.message });
+	}
+};
+
+const homeView = async (req, res, next) => {
+	res.render('home', { title: 'Hello user', });
+};
 
 module.exports.signupView = signupView;
 module.exports.signupAction = signupAction;
+module.exports.loginView = loginView;
+module.exports.loginAction = loginAction;
+module.exports.homeView = homeView;

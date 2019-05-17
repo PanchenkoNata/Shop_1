@@ -4,7 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
+const session = require('express-session');
 
+const config = require('config');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -14,7 +16,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -25,6 +27,18 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  name: config.get('session:name'),
+  resave: false,
+  saveUninitialized: false,
+  secret: config.get('session:secret'),
+  cookie: {
+    maxAge: config.get('session:maxAge'),
+    sameSite: true,
+    secure: config.get('session:in_prod'),
+  },
+}));
 
 let isRoutesEnabled = false;
 app.use((req, res, next) => {
@@ -53,8 +67,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
 
 const enableRoutes = () => {
   if (isRoutesEnabled === true) {
