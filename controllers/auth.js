@@ -2,6 +2,7 @@ const Ajv = require('ajv');
 const bcrypt = require('bcrypt');
 const createError = require('http-errors');
 
+const config = require('config');
 const User = require('models/user');
 
 const PersonSchema = require('schemas/person');
@@ -99,13 +100,23 @@ const loginAction = async (req, res, next) => {
 		};
 
 		req.session.userId = user.id;
-		console.log('Login is OK');
 		res.redirect('/home');
 
 	} catch (error) {
 		console.log(error.message);
 		res.render('login', { title: 'Sign Up', data: {}, error: error.message });
 	}
+};
+
+const logout = async (req, res,next) => {
+	req.session.destroy(async (error) => {
+		if (error) {
+			return res.redirect('/home');
+		};
+
+		res.clearCookie(config.get('session:name'));
+		res.redirect('/login');
+	})
 };
 
 const homeView = async (req, res, next) => {
@@ -117,3 +128,4 @@ module.exports.signupAction = signupAction;
 module.exports.loginView = loginView;
 module.exports.loginAction = loginAction;
 module.exports.homeView = homeView;
+module.exports.logout = logout;
