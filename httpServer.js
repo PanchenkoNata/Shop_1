@@ -5,16 +5,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const session = require('express-session');
-const I18n = require('i18n-t');
+const i18n = require('i18n');
 
 const config = require('config');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
-const i18n = new I18n({
-  defaultLocale: 'en',
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,14 +41,12 @@ app.use(session({
   },
 }));
 
-// app.use(i18n);
-
-i18n.load('./locales');
-console.log(i18n.locales());
-
-app.locals.t = (key) => {
-  return i18n.t('key');
-};
+i18n.configure({
+  locales:['en', 'ru'],
+  directory: __dirname + '/locales',
+  defaultLocale: 'ru',
+});
+app.use(i18n.init);
 
 let isRoutesEnabled = false;
 app.use((req, res, next) => {

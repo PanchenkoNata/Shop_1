@@ -1,9 +1,11 @@
 {
-    "Hello": "Hello",
-    "AboutUs" : "About Us",
-    "ShippingPay" : "Shipping and payment",
-    "Contacts" : "Contacts",
-    "Language" : "English",
-    "LogIn" : "Log In",
-    "SignUp" : "Sign Up"    
+	"Hello": "Hello",
+	"AboutUs": "About Us",
+	"ShippingPay": "Shipping and payment",
+	"Contacts": "Contacts",
+	"Language": "English",
+	"LogIn": "Log In",
+	"SignUp": "Sign Up",
+	"ru": "ru",
+	"Hello user": "Hello user"
 }

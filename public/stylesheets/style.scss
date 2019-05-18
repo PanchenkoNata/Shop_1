@@ -35,7 +35,9 @@ body {
 	ul {
 		list-style: none;
 	}
-
+	p {
+		color: red;
+	}
 	
 	.header {
 		background: #{$color-darc};

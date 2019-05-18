@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><% t('en', 'Hello') %></title>
+        <title><% __('Hello') %></title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <meta charset='utf-8'>
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
@@ -9,17 +9,18 @@
         <link rel='stylesheet' type='text/css' href='/stylesheets/style.css'>
     </head>
     <body>
-        <header class='header'>
+      <p>It is a paragraf   <% __(title) %></p>
+        <header class='header'>   
             <nav class='menu container'>
               <ul>
-                <li><% t('ru', 'AboutUs') %>1</li>
-                <li><% t('ShippingPay') %>2</li>
-                <li><% t('Contacts') %>3</li>
+                <li><%= __('AboutUs') %></li>
+                <li><%= __('ShippingPay') %></li>
+                <li><%= __('Contacts') %></li>
               </ul>
               <ul>
-                <li><% t('Language') %>4</li>
-                <li><% t('LogIn') %>5</li>
-                <li><% t('SignUp') %>6</li>
+                <li><%= __('Language') %></li>
+                <li><%= __('LogIn') %></li>
+                <li><%= __('SignUp') %></li>
               </ul>
             </nav>						
 				</header>

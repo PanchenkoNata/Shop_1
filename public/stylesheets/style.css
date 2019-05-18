@@ -26,6 +26,8 @@ body {
   font-size: 14px; }
   body ul {
     list-style: none; }
+  body p {
+    color: red; }
   body .header {
     background: #313131;
     width: 100%;

@@ -126,7 +126,7 @@ const homeView = async (req, res, next) => {
 
 const homeViewLang = async (req, res, next) => {
 	i18n.setLocale(req, req.params.lang);
-	res.render('home', { title: 'Hello user', });
+	res.render('home', { title: 'Hello', });
 };
 
 const adminView = async (req, res, next) => {
