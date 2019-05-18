@@ -1,0 +1,63 @@
+@font-face{
+	font-family: 'Google Sans';
+	src: url('../fonts/Google-Sans-Font/GoogleSans-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: 'Google Sans';
+	src: url('../fonts/Google-Sans-Font/GoogleSans-Bold.ttf');
+	font-weight: bold;
+	font-style: normal;
+}
+
+$color-darc: #313131;
+$text-color-light: #ffffff;
+$f-s-base: 10px;
+$f-s-norm: $f-s-base * 1.4;
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 1110px;
+	margin: 0 auto;
+}
+ul, li {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Google Sans', sans-serif;
+	font-size: #{$f-s-norm};
+	ul {
+		list-style: none;
+	}
+
+	
+	.header {
+		background: #{$color-darc};
+		width: 100%;
+		height: 36px;
+		color: #{$text-color-light};
+
+		.menu {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 100%;
+			border: 1px solid red;
+
+			ul {
+				border: 1px solid red;
+				li {
+					display: inline;				
+				}
+			}
+		}
+		
+	}
+
+}

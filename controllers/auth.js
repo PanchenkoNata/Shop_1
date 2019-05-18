@@ -1,6 +1,7 @@
 const Ajv = require('ajv');
 const bcrypt = require('bcrypt');
 const createError = require('http-errors');
+const i18n = require('i18n');
 
 const config = require('config');
 const User = require('models/user');
@@ -123,9 +124,20 @@ const homeView = async (req, res, next) => {
 	res.render('home', { title: 'Hello user', });
 };
 
+const homeViewLang = async (req, res, next) => {
+	i18n.setLocale(req, req.params.lang);
+	res.render('home', { title: 'Hello user', });
+};
+
+const adminView = async (req, res, next) => {
+	res.render('admin', { title: 'Hello admin', data: {} });
+};
+
 module.exports.signupView = signupView;
 module.exports.signupAction = signupAction;
 module.exports.loginView = loginView;
 module.exports.loginAction = loginAction;
 module.exports.homeView = homeView;
 module.exports.logout = logout;
+module.exports.adminView = adminView;
+module.exports.homeViewLang = homeViewLang;
