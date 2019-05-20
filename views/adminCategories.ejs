@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><%= __('Hello Admin') %></title>
+		<title><%= __(title) %></title>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 		<meta charset='utf-8'>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
@@ -9,21 +9,24 @@
 		<link rel='stylesheet' type='text/css' href='/stylesheets/style.css'>
 	</head>
 	<body>
-		<div class='wrapper'>
-			<%- include('adminHeader'); -%>
-			<div class='content container'>
-				<div class='linc-nav'>
-					<a href='#'><%= __('Admin') %></a>
-					<a href='#'><%= __('Home') %></a>
-				</div>
-				<div class='content-main'>
-					
-					<div class='content-info'></div>
-				</div>
+			<div class='wrapper'>
+					<%- include('adminHeader'); -%>
+					<div class='content container'>
+						<div class='linc-nav'>
+							<a href='#'><%= __('Admin') %></a>
+							<a href='#'><%= __('Category') %></a>
+						</div>
+						<div class='content-main'>
+							<%- include('adminLeftNav'); -%>
+							<div class='content-info'>
+								<h2 class='content-header'><%= __('Category') %></h2>
+									
+							</div>
+						</div>
+					</div>
 			</div>
-		</div>
-		<div>
-			<!-- <a href='/logout'>LogOut</a> -->
+			<div>
+				<!-- <a href='/logout'>LogOut</a> -->
 		</div>
 	</body>
 </html>
