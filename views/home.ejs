@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><% __('Hello') %></title>
+        <title><%= __('Hello') %></title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <meta charset='utf-8'>
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
@@ -9,20 +9,129 @@
         <link rel='stylesheet' type='text/css' href='/stylesheets/style.css'>
     </head>
     <body>
-        <header class='header'>   
-            <nav class='menu container'>
-              <ul>
-                <li><a href='#' class='link-block'><%= __('AboutUs') %></a></li>
-                <li><a href='#' class='link-block'><%= __('ShippingPay') %></a></li>
-                <li><a href='#' class='link-block'><%= __('Contacts') %></a></li>
-              </ul>
-              <ul>
-                <li><a href='#' class='link-block'><%= __('Language') %></a></li>
-                <li><a href='#' class='link-block'><%= __('LogIn') %></a></li>
-                <li><a href='#' class='link-block'><%= __('SignUp') %></a></li>
-              </ul>
-            </nav>						
-				</header>
+        <div class='wrapper'>
+            <header class='header'>   
+              <div class='header-top'>
+                <nav class='nav container'>
+                  <ul>
+                    <li><a href='#' class='link-block'><%= __('AboutUs') %></a></li>
+                    <li><a href='#' class='link-block'><%= __('ShippingPay') %></a></li>
+                    <li><a href='#' class='link-block'><%= __('Contacts') %></a></li>
+                  </ul>
+                  <ul>
+                    <li><a href='#' class='link-block'><%= __('Language') %></a></li>
+                    <li><a href='#' class='link-block'><%= __('LogIn') %></a></li>
+                    <li><a href='#' class='link-block'><%= __('SignUp') %></a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div class='header-bottom'>
+                <div class='menu container'>
+                  <div class='logo'>
+                    <a href='/home' class='link-block'>
+                      <svg></svg>
+                      
+                    </a>
+                  </div>
+                  <div class='product-type'>
+                    <span><%= __('Catalog') %></span>
+                    <div class='toogle'></div>
+                  </div>
+                  <div class='search'>
+                    <p><%= __('Search') %></p>
+                    <button type='button'></button>
+                  </div>
+                  <div class='favorite'></div>
+                  <div class='bin'>
+                    <div class='bin-icon'></div>
+                    <div class='bin-info'><%= __('Your bag') %>: <span><%= __('goods') %> (0)</span></div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div class='content container'>
+              <div class='linc-nav'>
+                <a href='#'><%= __('Home') %></a>
+                <a href='#'><%= __('Home') %></a>
+              </div>
+              <div class='content-main'>
+                <div class='left-nav'>
+                  <div class='product-type'>
+                    <span><%= __('Sex-toys') %></span>
+                    <div class='toogle'></div>
+                  </div>
+                  <div class='filters'>
+                  <form method='GET' action=''>
+                    <ul>
+                      <li class='filtre-item'>
+                        <div class='filter-header'>
+                          <span class='uppercase t-bold'><%= __('Categories') %></span>
+                          <img>
+                        </div>
+                        <ul class='checkbox-categories'>
+                          <li>
+                            <input type='checkbox' class='checkCat' name='checkCat1'>
+                            <label for='checkCat1'>Cat1</label>
+                          </li>
+                          <li>
+                            <input type='checkbox' class='checkCat' name='checkCat2'>
+                            <label for='checkCat2'>Cat2</label>
+                          </li>
+                          <li>
+                            <input type='checkbox' class='checkCat' name='checkCat3'>
+                            <label for='checkCat3'>Cat3</label>
+                          </li>
+                        </ul>          
+                      </li>
+                      <li class='filtre-item'>
+                        <div class='filter-header'>
+                          <span class='uppercase'><%= __('Price') %></span>
+                          <img>
+                        </div>
+                        <ul>
+                          <li>
+                            <input type='text' class='start-price' name='start_price' value='0'>
+                          </li>
+                          <li>
+                            <input type='text' class='start-price' name='start_price' value='10000'>
+                          </li>
+                        </ul>
+                        <div class=''></div>                    
+                      </li>
+                    </ul>
+                    <button type='submit' name='submit'>Отправить</button>
+                  </form>
+                  </div>
+                </div>
+
+                <div class='content-info'>
+                  <div class='info-header'>
+
+                  </div>
+                  <div class='goods'>
+                    <a href='#' class='link-prod-card linc-block' >
+                      <div class='product-card'>
+                          <div class='pr-category'>
+                            <p class='pr-cat-title uppercase t-bold'>Category</p>
+                            <a href='#' class='addToFavorites'><img src='/images/icon_favotite.png' alt=''></a>
+                          </div>
+                          <div class='pr-main-img'><img></div>
+                          <p class='price t-bold'>500 грн.</p>
+                          <p class='pr-descr'>Лубрикант на силиконовой основе Silc glide, 100 мл</p>
+                          <ul class='tags'>
+                            <li class=''>новинка</li>
+                          </ul>
+                        </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class='footer'>
+              <div class='footer-top'></div>
+              <div class='footer-bottom'></div>
+            </footer>
+        </div>
 				<div>
 					<!-- <a href='/logout'>LogOut</a> -->
 			</div>
