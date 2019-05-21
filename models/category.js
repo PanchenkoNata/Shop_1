@@ -10,14 +10,6 @@ const generalSchema = new Schema({
 		minlength: 2,
 		maxlength: 50
 	},
-	subcats: [
-		{
-			subcat: {
-				type: Schema.Types.ObjectId,
-				ref: 'SubCategory',	
-			},
-		}
-	]
 });
 
 const model = mongoose.model('Category', generalSchema);

@@ -48,9 +48,9 @@ const generalSchema = new Schema({
         default: true,
         index: true,
     },
-    subCat: {
+    category: {
         type: Schema.Types.ObjectId,
-        rel: 'SubCategory',
+        rel: 'Category',
     },
     tags: [{
         type: Schema.Types.ObjectId,
@@ -61,6 +61,11 @@ const generalSchema = new Schema({
             review: Review,
         }
     ],
+    hasHystory: {
+        type: Schema.Types.Boolean,
+        required: true,
+        default: false,
+    },
     images: [
         {
             type: Schema.Types.String,
