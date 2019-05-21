@@ -4,7 +4,7 @@
 	"ShippingPay": "Shipping and payment",
 	"Contacts": "Contacts",
 	"Language": "English",
-	"LogIn": "Log In",	
+	"LogIn": "Log In",
 	"LogOut": "LogOut",
 	"SignUp": "Sign Up",
 	"Catalog": "Catalog",
@@ -14,7 +14,7 @@
 	"Hello Admin": "Hello Admin",
 	"Goods": "Goods",
 	"Categories": "Categories",
-	"Category" : "Category",
+	"Category": "Category",
 	"Types": "Types",
 	"Tags": "Tags",
 	"Vendors": "Vendors",
@@ -24,5 +24,7 @@
 	"Home": "Home",
 	"Sex-toys": "Sex-toys",
 	"Price": "Price",
-	"Admin": "Admin"
+	"Admin": "Admin",
+	"Logout": "Logout",
+	"Express": "Express"
 }

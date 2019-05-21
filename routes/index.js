@@ -18,7 +18,6 @@ router.post('/login', auth.loginAction);
 
 router.get('/logout', auth.logout);
 
-router.get('/admin', auth.adminView);
 // router.get('/admin/categories', auth.adminCatView);
 
 module.exports = router;
