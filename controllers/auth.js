@@ -130,7 +130,7 @@ const homeViewLang = async (req, res, next) => {
 };
 
 const adminView = async (req, res, next) => {
-	res.render('admin', { title: 'Hello admin', data: {} });
+	res.render('admin', { title: 'Hello Admin', data: {} });
 };
 
 module.exports.signupView = signupView;
