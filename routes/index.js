@@ -5,7 +5,7 @@ const auth = require('controllers/auth');
 const router = express.Router();
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express', });
+  res.redirect('/home');
 });
 router.get('/home', auth.homeView);
 router.get('/home/:lang', auth.homeViewLang);

@@ -1,3 +1,9 @@
+<%= data.btnAdd %>
+
+data-documType=''
+
+
+adminAdd Docum.ejs -- old
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,17 +13,15 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 		<link rel='stylesheet' type='text/css' href='/stylesheets/style.css'>
-		<link rel='stylesheet' type='text/css' href='/stylesheets/adminStyle.css'>
 	</head>
 	<body>
 		<div class='wrapper'>
 			<%- include('adminHeader'); -%>
 			<div class='content container'>
-				<ul class="breadcrumb">
-					<li><a href='/admin'><%= __('Admin') %></a></li>
-					<li><a href='/admin/<%= __(title) %>'><%= __(title) %></a></li>
-				</ul>
-				
+				<div class='linc-nav'>
+					<a href='#'><%= __('Admin') %></a>
+					<a href='#'><%= __(title) %></a>
+				</div>
 				<div class='content-main'>
 					<%- include('adminLeftNav'); -%>
 					<div class='content-info'>
@@ -27,34 +31,24 @@
 							<!-- <form class='addCategory' method='GET' action=''>
 								<button data-btnAdd='addCategory'>AddBTN</button>
 							</form> -->
-							
-
+							<% if (data.documType) {} %>
 							<div class='addDocum'>
-
-								<form  class='add-input' action='' method='POST'>
-									<label> 
-										<input type='text' name='addDocumInput' value='<%= data.documName %>'>
-										<button type='submit'>Submit</button>
-									</label>
-								</form>
-
-								<% if (error) { %>
-								<div class='error-info'>
-									<p class='danger'>Error! <%= error %></p>
+									<form  action='' method='GET'>
+										<label> 
+											Input name of <%= data.documType %>
+												<input type='text' name='addDocumInput' value='<%= data.documName %>'>
+										</label>
+										
+									</form>
 								</div>
-								<% } %>
-								
-								<div class='success-info active'>
-									<p class=''>Your action is successful</p>
-									<button class='successEnd'><a href='#'>Continue</a></button>
-								</div>
-							</div>
+							<% } %>
 						</div>
+						
+						
 					</div>
 				</div>
 			</div>
 		</div>
-		
 		<div>
 			<!-- <a href='/logout'>LogOut</a> -->
 		</div>

@@ -9,4 +9,8 @@ router.get('/', admin.adminView);
 
 router.get('/categories', admin.categView);
 
+router.get('/categories/add', admin.categView);
+
+router.post('/categories/add', admin.categAction);
+
 module.exports = router;

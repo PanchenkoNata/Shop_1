@@ -13,11 +13,10 @@
 		<div class='wrapper'>
 			<%- include('adminHeader'); -%>
 			<div class='content container'>
-				<ul class="breadcrumb">
-					<li><a href='/admin'><%= __('Admin') %></a></li>
-					<li><a href='/admin/<%= __(title) %>'><%= __(title) %></a></li>
-				</ul>
-				
+				<div class='linc-nav'>
+					<a href='/admin'>Admin</a>
+					<a href='/admin/<%= __(title) %>'><%= __(title) %></a>
+				</div>
 				<div class='content-main'>
 					<%- include('adminLeftNav'); -%>
 					<div class='content-info'>
@@ -30,7 +29,7 @@
 							
 
 							<div class='addDocum'>
-
+								
 								<form  class='add-input' action='' method='POST'>
 									<label> 
 										<input type='text' name='addDocumInput' value='<%= data.documName %>'>

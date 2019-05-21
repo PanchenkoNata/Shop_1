@@ -50,6 +50,16 @@ html {
 	a {
 		text-decoration: none;
 	}
+
+	.danger {
+		color: #FF0000;
+		font-weight: bold;
+	}
+
+	.success {
+		color: #00AA00;
+		font-weight: bold;
+	}
 	body {
 		font-family: 'Google Sans', sans-serif;
 		font-size: #{$f-s-norm};
@@ -216,7 +226,7 @@ html {
 						background-color: lightyellow;
 
 						.info-header {
-
+							background: red;
 						}
 
 						.goods {

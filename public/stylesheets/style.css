@@ -25,6 +25,12 @@ html {
     margin: 0; }
   html a {
     text-decoration: none; }
+  html .danger {
+    color: #FF0000;
+    font-weight: bold; }
+  html .success {
+    color: #00AA00;
+    font-weight: bold; }
   html body {
     font-family: 'Google Sans', sans-serif;
     font-size: 14px;
@@ -129,6 +135,8 @@ html {
         html body .wrapper .content .content-main .content-info {
           width: 74.65%;
           background-color: lightyellow; }
+          html body .wrapper .content .content-main .content-info .info-header {
+            background: red; }
           html body .wrapper .content .content-main .content-info .goods .product-card {
             background: #FFFFFF;
             border: 1px solid #E9E9E9;
