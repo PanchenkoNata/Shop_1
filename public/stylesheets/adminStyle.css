@@ -1,6 +1,5 @@
 .content, .content-info {
-  padding: 20px;
-}
+  padding: 20px; }
 
 .success-info {
   position: absolute;
@@ -11,22 +10,11 @@
   padding: 20px;
   background-color: #79bd79;
   z-index: 100;
-  opacity: 0;
-}
-
-.success-info .successEnd {
-  margin: 30px auto;
-}
+  opacity: 0; }
+  .success-info .successEnd {
+    margin: 30px auto; }
 
 .success-active {
-  opacity: 1;
-}
+  opacity: 1; }
 
-.breadcrumb {
-  list-style-type: none;
-}
-
-.breadcrumb li {
-  display: inline;
-}
 /*# sourceMappingURL=adminStyle.css.map */

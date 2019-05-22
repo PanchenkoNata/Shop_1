@@ -156,18 +156,21 @@ html {
 			}
 
 			.content {
-				.linc-nav {
+			.breadcrumb {
 					height: 7.2rem;
 					line-height: 7.2rem;
-					a {
-						padding-right: 26px;
-						color: #979FAD;
-						position: relative;
-
-						&:hover {
-							text-decoration: underline;
+					display: flex;
+					li {
+						a {
+							padding-right: 26px;
+							color: #979FAD;
+							position: relative;
+	
+							&:hover {
+								text-decoration: underline;
+							}
 						}
-						&::after {
+						& a::after {
 							display: inline;
 							position: absolute;
 							content: '/';
@@ -175,12 +178,15 @@ html {
 						}
 	
 						&:last-child {
-							color: #{$t-col-darc};
-							&::after {
-								content: '';
+							a {
+								color: #{$t-col-darc};
+								&::after {
+									content: '';
+								}
 							}
 						}
 					}
+					
 				}
 				.content-main {
 					display: flex;

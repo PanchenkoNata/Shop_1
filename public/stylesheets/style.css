@@ -95,24 +95,25 @@ html {
               width: 46.1rem;
               display: flex;
               align-items: center; }
-      html body .wrapper .content .linc-nav {
+      html body .wrapper .content .breadcrumb {
         height: 7.2rem;
-        line-height: 7.2rem; }
-        html body .wrapper .content .linc-nav a {
+        line-height: 7.2rem;
+        display: flex; }
+        html body .wrapper .content .breadcrumb li a {
           padding-right: 26px;
           color: #979FAD;
           position: relative; }
-          html body .wrapper .content .linc-nav a:hover {
+          html body .wrapper .content .breadcrumb li a:hover {
             text-decoration: underline; }
-          html body .wrapper .content .linc-nav a::after {
-            display: inline;
-            position: absolute;
-            content: '/';
-            padding: 0 13px; }
-          html body .wrapper .content .linc-nav a:last-child {
-            color: #363636; }
-            html body .wrapper .content .linc-nav a:last-child::after {
-              content: ''; }
+        html body .wrapper .content .breadcrumb li a::after {
+          display: inline;
+          position: absolute;
+          content: '/';
+          padding: 0 13px; }
+        html body .wrapper .content .breadcrumb li:last-child a {
+          color: #363636; }
+          html body .wrapper .content .breadcrumb li:last-child a::after {
+            content: ''; }
       html body .wrapper .content .content-main {
         display: flex;
         justify-content: space-between; }
