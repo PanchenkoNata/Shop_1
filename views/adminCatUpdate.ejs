@@ -22,9 +22,15 @@
 					<%- include('adminLeftNav'); -%>
 					<div class='content-info'>
 						<h2><%= __(title) %></h2>
-						<div><a class='link-block' href='/admin/categories/add'>Add category</a></div>
-						<div><a class='link-block' href='/admin/categories/update'>Update category</a></div>
-						<div><a class='link-block' href='/admin/categories/add'>Add category</a></div>						
+						<p>What category do you want to change?</p>
+						<form action='' method='GET'>
+							<select class='all-categories'>
+								<% categories.forEach(function(category) { %>
+									<option value='<%= category.id %>'><%= category.name %></option>
+								<% }); %>
+							</select>
+							<button type='submit' class='update'>Update</a></div>
+					</form>						
 					</div>
 				</div>
 			</div>

@@ -12,7 +12,9 @@ const adminView = async (req, res, next) => {
 };
 
 const categView = async (req, res, next) => {
-	res.render('adminCategories', { title: 'Categories', data: {}, error: false });
+	const categories = await Category.find({}).sort({ name: 1, });
+	console.log(categories);
+	res.render('adminCategories', { title: 'Categories', categories: categories,  data: {}, error: false });
 };
 
 // const categAction = async (req, res, next) => {
@@ -30,6 +32,7 @@ const categView = async (req, res, next) => {
 // };
 
 const addCategView = async (req, res, next) => {
+
 	res.render('adminCatAdd', { title: 'Add category', data: {}, error: false });
 };
 

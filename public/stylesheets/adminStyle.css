@@ -1,6 +1,17 @@
 .content, .content-info {
   padding: 20px; }
 
+.content-info .all-categories li {
+  display: flex; }
+  .content-info .all-categories li .update {
+    padding: 10px 20px;
+    margin-right: 20px;
+    background-color: #FFFF88; }
+  .content-info .all-categories li .delete {
+    padding: 5px;
+    background-color: #FF0000;
+    color: #FFFFFF; }
+
 .success-info {
   position: absolute;
   top: 200px;
