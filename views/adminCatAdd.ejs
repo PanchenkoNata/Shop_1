@@ -41,14 +41,14 @@
 
 								<% if (error) { %>
 								<div class='error-info'>
-									<p class='danger'>Error! <%= error %></p>
+									<p class='danger'>Error! <%= error %> You cannot add the category '<%= data.name %>' </p>
 								</div>
 								<% } %>
-								
-								<div class='success-info active'>
-									<p class=''>Your action is successful</p>
-									<button class='successEnd'><a href='#'>Continue</a></button>
+								<% if (success) { %>
+								<div class=''>
+									<p class='success'>Well done! The category '<%= data.name %> was added successefuly'</p>
 								</div>
+								<% } %>
 							</div>
 						</div>
 					</div>

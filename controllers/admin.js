@@ -33,7 +33,7 @@ const categView = async (req, res, next) => {
 
 const addCategView = async (req, res, next) => {
 
-	res.render('adminCatAdd', { title: 'Add category', data: {}, error: false });
+	res.render('adminCatAdd', { title: 'Add category', data: {}, error: false, success: false });
 };
 
 const addCategAction = async (req, res, next) => {
@@ -56,9 +56,9 @@ const addCategAction = async (req, res, next) => {
 		const newCategory = new Category(categoryObj);
 		await newCategory.save();
 		
-		res.render('adminCatAdd', { title: 'Add category', data: categoryObj, error: false });
+		res.render('adminCatAdd', { title: 'Add category', data: categoryObj, error: false, success: true, });
 	} catch (error) {
-		res.render('adminCatAdd', { title: 'Add category', data: categoryObj, error: error.message });
+		res.render('adminCatAdd', { title: 'Add category', data: categoryObj, error: error.message, success: false });
 	}	
 };
 
