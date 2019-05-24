@@ -12,7 +12,7 @@ router.get('/categories', admin.categView);
 router.get('/categories/add', admin.addCategView);
 router.post('/categories/add', admin.addCategAction);
 
-router.get('/categories/update', admin.updCategView);
-router.post('/categories/update', admin.updCategAction);
+router.get('/categories/update/:name', admin.updCategView);
+router.post('/categories/update/:name', admin.updCategAction);
 
 module.exports = router;
