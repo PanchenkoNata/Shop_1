@@ -25,7 +25,7 @@ const generalSchema = new Schema ({
 	],
 	isBlocked: {
 		type: Schema.Types.Boolean,
-		default: 'false',
+		default: false,
 	}
 }, {
 	timestamps: true,

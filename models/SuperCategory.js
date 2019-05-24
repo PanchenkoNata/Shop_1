@@ -15,9 +15,9 @@ const generalSchema = new Schema({
 			type: Schema.Types.ObjectId,
 			ref: 'Category',
 		}
-	]
+	],
 });
 
-const model = mongoose.model('ProductType', generalSchema);
+const model = mongoose.model('SuperCategory', generalSchema);
 
 module.exports = model;
