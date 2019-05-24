@@ -29,8 +29,8 @@
 								<% categories.forEach(function(category) { %>
 									<li data-categoryId='<%= category.id %>' data-categoryname='<%= category.name %>'>
 										<span><%= category.name %></span>
-										<a class='' href='/admin/categories/update'>Update</a>
-										<a class='' href='/admin/categories/add'>Delete</a>
+										<a class='' href='/admin/categories/update/<%= category.name %>'>Update</a>
+										<a class='' href='/admin/categories/add/<%= category.name %>'>Delete</a>
 									</li>
 								<% }); %>
 							</ul>

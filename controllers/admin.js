@@ -63,20 +63,22 @@ const addCategAction = async (req, res, next) => {
 };
 
 const updCategView = async (req, res, next) => {
-	res.render('adminCatUpdate', { title: 'Update category', data: {}, error: false });
+	res.render('adminCatUpdate', { title: 'Update category', data: {}, error: false, success: false });
 };
 
 const updCategAction = async (req, res, next) => {
 	const { updated_cat_name, new_cat_name } = req.body;
-	const categoryObj = {
-		name: new_cat_name,
-	}
-	console.log(categoryObj.name);
+	const dataObj = {
+		new_cat_name: new_cat_name,
+		updated_cat_name: updated_cat_name
+	};
 	try {
-		if ( typeof(new_cat_name) != 'string' ) {
+		if ( typeof(updated_cat_name) != 'string' && typeof(new_cat_name) != 'string' ) {
 			throw new Error('The data is not a string');
 		}
-		
+		if ( updated_cat_name == '' &&  new_cat_name == '' ) {
+			throw new Error(`You don't input the name of updated category or it new name`);
+		}
 		const updatedCaregory = await Category.findOne({ 'name': updated_cat_name});
 		const newCategory = await Category.findOne({ 'name': new_cat_name});
 		if (!updatedCaregory) {
@@ -85,12 +87,12 @@ const updCategAction = async (req, res, next) => {
 		if (newCategory) {
 			throw new Error(`You cannot change the name of category '${updated_cat_name}' to '${new_cat_name}' because it already exist`)
 		}
-		updatedCaregory.name = new_cat_name;
+		updatedCaregory.name = data.new_cat_name;
 		await updatedCaregory.save();
 		
-		res.render('adminCatUpdate', { title: 'Update category', data: categoryObj, error: false });
+		res.render('adminCatUpdate', { title: 'Update category', data: dataObj, error: false, success: true });
 	} catch (error) {
-		res.render('adminCatUpdate', { title: 'Update category', data: categoryObj, error: error.message });
+		res.render('adminCatUpdate', { title: 'Update category', data: dataObj, error: error.message, success: false });
 	}	
 };
 

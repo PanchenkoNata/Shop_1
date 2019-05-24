@@ -26,12 +26,21 @@
 						<p>You will update category:</p>
 						<!-- <p class='updatedCategory'></p> -->
 						<form action='' method='POST' class='update_category'>
-							<label>from: <input type='text' name='updated_cat_name' value=''></label>
-							<label>to: <input type='text' name='new_cat_name' value=''>
+							<label>from: <input type='text' name='updated_cat_name' value='<%= data.updated_cat_name %>'></label>
+							<label>to: <input type='text' name='new_cat_name' value='<%= data.new_cat_name %>'>
 							</label>
-							<button type='submit' class='update'>Update</a></div>
+							<button type='submit' class='update'>Update</button>
 						</form>
-						
+						<% if (error) { %>
+						<div class='error-info'>
+							<p class='danger'>Error! <%= error %>! </p>
+						</div>
+						<% } %>
+						<% if (success) { %>
+						<div class=''>
+							<p class='success'>Well done! The name of category was updated successefuly from '<%= data.updated_cat_name %>' to '<%= data.new_cat_name %>'</p>
+						</div>
+						<% } %>
 					</div>
 				</div>
 			</div>
