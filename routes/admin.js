@@ -10,7 +10,9 @@ router.get('/', admin.adminView);
 router.get('/categories', admin.categView);
 
 router.get('/categories/add', admin.addCategView);
-
 router.post('/categories/add', admin.addCategAction);
+
+router.get('/categories/update', admin.updCategView);
+router.post('/categories/update', admin.updCategAction);
 
 module.exports = router;

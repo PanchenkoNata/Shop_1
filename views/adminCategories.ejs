@@ -23,15 +23,23 @@
 					<div class='content-info'>
 						<h2><%= __(title) %></h2>
 						<div><a class='link-block' href='/admin/categories/add'>Add category</a></div>
-						<div><a class='link-block' href='/admin/categories/update'>Update category</a></div>
-						<div><a class='link-block' href='/admin/categories/add'>Add category</a></div>						
+						<div>
+							<p>All categories:</p>
+							<ul class='categories-list'>
+								<% categories.forEach(function(category) { %>
+									<li data-categoryId='<%= category.id %>' data-categoryname='<%= category.name %>'>
+										<span><%= category.name %></span>
+										<a class='' href='/admin/categories/update'>Update</a>
+										<a class='' href='/admin/categories/add'>Delete</a>
+									</li>
+								<% }); %>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		
-		<div>
-			<!-- <a href='/logout'>LogOut</a> -->
-		</div>
+		<script src='/javascripts/categories.js'></script>
 	</body>
 </html>

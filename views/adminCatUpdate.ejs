@@ -15,29 +15,27 @@
 			<div class='content container'>
 				<ul class="breadcrumb">
 					<li><a href='/admin'><%= __('Admin') %></a></li>
-					<li><a href='/admin/<%= __(title) %>'><%= __(title) %></a></li>
+					<li><a href='/admin/categories'>Categories</a></li>
+					<li><a href='/admin/categories/<%= __(title) %>'><%= __(title) %></a></li>
 				</ul>
 				
 				<div class='content-main'>
 					<%- include('adminLeftNav'); -%>
 					<div class='content-info'>
 						<h2><%= __(title) %></h2>
-						<p>What category do you want to change?</p>
-						<form action='' method='GET'>
-							<select class='all-categories'>
-								<% categories.forEach(function(category) { %>
-									<option value='<%= category.id %>'><%= category.name %></option>
-								<% }); %>
-							</select>
+						<p>You will update category:</p>
+						<!-- <p class='updatedCategory'></p> -->
+						<form action='' method='POST' class='update_category'>
+							<label>from: <input type='text' name='updated_cat_name' value=''></label>
+							<label>to: <input type='text' name='new_cat_name' value=''>
+							</label>
 							<button type='submit' class='update'>Update</a></div>
-					</form>						
+						</form>						
 					</div>
 				</div>
 			</div>
 		</div>
 		
-		<div>
-			<!-- <a href='/logout'>LogOut</a> -->
-		</div>
+		<script src='/javascripts/update.js'></script>
 	</body>
 </html>

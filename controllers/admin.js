@@ -62,7 +62,43 @@ const addCategAction = async (req, res, next) => {
 	}	
 };
 
+const updCategView = async (req, res, next) => {
+	res.render('adminCatUpdate', { title: 'Update category', data: {}, error: false });
+};
+
+const updCategAction = async (req, res, next) => {
+	const { updated_cat_name, new_cat_name } = req.body;
+	const categoryObj = {
+		name: new_cat_name,
+	}
+	console.log(categoryObj.name);
+	try {
+		if ( typeof(new_cat_name) != 'string' ) {
+			throw new Error('The data is not a string');
+		}
+		
+		const updatedCaregory = await Category.findOne({ 'name': updated_cat_name});
+		const newCategory = await Category.findOne({ 'name': new_cat_name});
+		if (!updatedCaregory) {
+			throw new Error(`The category whis name '${updated_cat_name}' doesn't exist`);
+		}
+		if (newCategory) {
+			throw new Error(`You cannot change the name of category '${updated_cat_name}' to '${new_cat_name}' because it already exist`)
+		}
+		updatedCaregory.name = new_cat_name;
+		await updatedCaregory.save();
+		
+		res.render('adminCatUpdate', { title: 'Update category', data: categoryObj, error: false });
+	} catch (error) {
+		res.render('adminCatUpdate', { title: 'Update category', data: categoryObj, error: error.message });
+	}	
+};
+
+
 module.exports.adminView = adminView;
 module.exports.categView = categView;
 module.exports.addCategView = addCategView;
 module.exports.addCategAction = addCategAction;
+module.exports.updCategView = updCategView;
+module.exports.updCategAction = updCategAction;
+

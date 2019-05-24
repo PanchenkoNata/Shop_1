@@ -2,6 +2,22 @@
 
 data-documType=''
 
+/admin/categories/update
+
+
+
+<form action='' method='GET'>
+        <select class='all-categories'>
+                <% categories.forEach(function(category) { %>
+                            <option value='<%= category.id %>'><%= category.name %></option>
+                <% }); %>
+        </select>
+        <button type='submit' class='update'>Update</a></div>
+        <div class='delete'><a class='delete link-block' href='#'>Delete</a></div>
+    </form>
+
+
+	
 
 adminAdd Docum.ejs -- old
 <!DOCTYPE html>

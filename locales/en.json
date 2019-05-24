@@ -27,5 +27,6 @@
 	"Admin": "Admin",
 	"Logout": "Logout",
 	"Express": "Express",
-	"Add category": "Add category"
+	"Add category": "Add category",
+	"Update category": "Update category"
 }
