@@ -281,7 +281,6 @@ html {
 
 					.left-nav {
 						width: 24.05%;
-						background-color: lightgreen;
 
 						.drop-down-menu {
 							margin-bottom: 1.5rem;
@@ -291,10 +290,95 @@ html {
 						.filters {
 							background: #FCFCFC;
 							border: 1px solid #E9E9E9;
-							padding: 1.7rem;
+							padding: 1.4rem;
+							.filter {
+								border-bottom: 1px solid #F3F2F2;
+
+								.filter-header {
+									margin-bottom: 1.5rem;
+								}
+								.filter-items {
+									.filter-item {
+										display: flex;
+										align-items: center;
+										margin-bottom: 11px;
+										.filter-checkbox {
+											width: 13px;
+											height: 13px;
+											background: #FFFFFF;
+											border: 1px solid #EAEAEA;
+											margin-right: 10px
+										}
+										.filter-name {
+											margin: 0;
+											
+											span {
+												color: #{$t-col-cat-card}; 
+											}
+										}
+									}
+								}
+								.price-values {
+
+								}
+								.price-slider {
+									position: relative;
+									height: 25px;
+									
+									.back-line {
+										width: 234px;
+										height: 5px;
+										background: #F3F2F2;
+										border: 1px solid #E0E0E3;
+										box-sizing: border-box;
+										border-radius: 1px;
+										position: absolute;
+										top: 10px;
+										left: 0px;
+										z-index: 300;
+									}
+									.slider-line {
+										width: 154px;
+										height: 5px;
+										background: linear-gradient(0deg, #7359BE, #7359BE), linear-gradient(89.73deg, #865CFF 4.74%, #5D76FD 97.07%);
+										border-radius: 1px;
+										position: absolute;
+										top: 10px;
+										left: 17px;
+										z-index: 320;
+
+										&::before, &::after {
+											display: block;
+											content: ' ';
+											position: absolute;
+											top: -9px;
+											width: 25px;
+											height: 25px;
+											background: #FFFFFF;
+											border: 3px solid #7359BE;
+											box-sizing: border-box;
+											border-radius: 50%;
+											z-index: 350;
+										}
+										&::before {
+											left: 0px;
+										}
+										&::after {
+											right: 0px;
+											// left: 129px;
+										}
+									}
+									
+								}
+								&.filter-price {
+									background: #FFFFFF;
+									padding-top: 325px;
+								}
+							}
 							ul {
 							
 								.filtre-item {
+									
 									.filter-header {
 										margin-bottom: 1.7rem;
 									}
@@ -313,7 +397,6 @@ html {
 
 					.goods-info {
 						width: 74.65%;
-						background-color: lightyellow;
 
 						.goods-header {
 							display: flex;
@@ -336,7 +419,7 @@ html {
 								}
 								.sort-item {
 									text-decoration: none;
-									margin-left: 20px;
+									margin-left: 23px;
 									padding-bottom: 4px; 
 									color: #{$t-col-cat-card};
 									border-bottom: 2px solid transparent;
@@ -364,16 +447,14 @@ html {
 								margin-bottom: 15px;
 								width: 32.2%;
 								.product-card {
-									// text-decoration: 0;
 									background: #FFFFFF;
 									border: 1px solid #E9E9E9;
 									// width: 266.7px;
 									height: 360px;
-									padding: 21px 20px 30px 20px;
+									padding: 18px 20px 30px 20px;
 
 									.pr-category {
 										display: flex;
-										// flex-direction: row;
 										justify-content: space-between;
 
 										.pr-cat-title {
@@ -389,7 +470,7 @@ html {
 									}
 
 									.prod-img {
-										height: 180px;
+										height: 181px;
 									}
 									.prod-price {
 										font-size: 2.2rem;
@@ -407,18 +488,15 @@ html {
 											color: #999999;
 											font-size: 1.4rem;
 											text-decoration: line-through;
-											opacity: 0;
 										}
 										.discount {
 											color: #{$t-col-light};
 											background: #{$col-site-1};
-											// border-right: 10px;
 											position: absolute;
 											top: -33px;
 											font-size: 1.2rem;
 											width: 36px;
 											height: 18px;
-											opacity: 0;
 											line-height: 18px;
 											padding-left: 5px;
 
@@ -432,14 +510,16 @@ html {
 												border-left: 9px solid #{$col-site-1};
 											}
 										}
-
+										.invisible {
+											opacity: 0;
+										}
 										.visible {
 											opacity: 1;
 										}
 									}
 
 									.prod-description {
-										margin: 9px 0 13px;
+										margin: 7px 0 14px;
 									}
 
 									.tags {
@@ -447,12 +527,19 @@ html {
 
 										.product-tag {
 											margin-right: 9px;
-											width: 63px;
+											padding: 0 8px;
 											height: 19px;
 											color: #FFFFFF;
 											text-align: center;
 											font-size: 1.2rem;
-											line-height: 1.9rem;
+											line-height: 1.7rem;
+											
+										}
+										.discount-col {
+											background: #{$col-discount};
+										}
+										.bestseller-col {
+											background: #{$col-site-1};
 										}
 									}
 								}

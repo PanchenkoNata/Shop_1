@@ -325,7 +325,6 @@ html body .wrapper .content .content-main {
 
 html body .wrapper .content .content-main .left-nav {
   width: 24.05%;
-  background-color: lightgreen;
 }
 
 html body .wrapper .content .content-main .left-nav .drop-down-menu {
@@ -336,7 +335,99 @@ html body .wrapper .content .content-main .left-nav .drop-down-menu {
 html body .wrapper .content .content-main .left-nav .filters {
   background: #FCFCFC;
   border: 1px solid #E9E9E9;
-  padding: 1.7rem;
+  padding: 1.4rem;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter {
+  border-bottom: 1px solid #F3F2F2;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .filter-header {
+  margin-bottom: 1.5rem;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .filter-items .filter-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 11px;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .filter-items .filter-item .filter-checkbox {
+  width: 13px;
+  height: 13px;
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  margin-right: 10px;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .filter-items .filter-item .filter-name {
+  margin: 0;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .filter-items .filter-item .filter-name span {
+  color: #939393;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .price-slider {
+  position: relative;
+  height: 25px;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .price-slider .back-line {
+  width: 234px;
+  height: 5px;
+  background: #F3F2F2;
+  border: 1px solid #E0E0E3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 1px;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  z-index: 300;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .price-slider .slider-line {
+  width: 154px;
+  height: 5px;
+  background: linear-gradient(0deg, #7359BE, #7359BE), linear-gradient(89.73deg, #865CFF 4.74%, #5D76FD 97.07%);
+  border-radius: 1px;
+  position: absolute;
+  top: 10px;
+  left: 17px;
+  z-index: 320;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .price-slider .slider-line::before, html body .wrapper .content .content-main .left-nav .filters .filter .price-slider .slider-line::after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  top: -9px;
+  width: 25px;
+  height: 25px;
+  background: #FFFFFF;
+  border: 3px solid #7359BE;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 50%;
+  z-index: 350;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .price-slider .slider-line::before {
+  left: 0px;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .price-slider .slider-line::after {
+  right: 0px;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter.filter-price {
+  background: #FFFFFF;
+  padding-top: 325px;
 }
 
 html body .wrapper .content .content-main .left-nav .filters ul .filtre-item .filter-header {
@@ -353,7 +444,6 @@ html body .wrapper .content .content-main .left-nav .filters ul .filtre-item .ch
 
 html body .wrapper .content .content-main .goods-info {
   width: 74.65%;
-  background-color: lightyellow;
 }
 
 html body .wrapper .content .content-main .goods-info .goods-header {
@@ -394,7 +484,7 @@ html body .wrapper .content .content-main .goods-info .goods-header .sort p {
 
 html body .wrapper .content .content-main .goods-info .goods-header .sort .sort-item {
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 23px;
   padding-bottom: 4px;
   color: #939393;
   border-bottom: 2px solid transparent;
@@ -431,7 +521,7 @@ html body .wrapper .content .content-main .goods-info .goods .product-card-wrapp
   background: #FFFFFF;
   border: 1px solid #E9E9E9;
   height: 360px;
-  padding: 21px 20px 30px 20px;
+  padding: 18px 20px 30px 20px;
 }
 
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .pr-category {
@@ -454,7 +544,7 @@ html body .wrapper .content .content-main .goods-info .goods .product-card-wrapp
 }
 
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-img {
-  height: 180px;
+  height: 181px;
 }
 
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-price {
@@ -477,7 +567,6 @@ html body .wrapper .content .content-main .goods-info .goods .product-card-wrapp
   color: #999999;
   font-size: 1.4rem;
   text-decoration: line-through;
-  opacity: 0;
 }
 
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-price .discount {
@@ -488,7 +577,6 @@ html body .wrapper .content .content-main .goods-info .goods .product-card-wrapp
   font-size: 1.2rem;
   width: 36px;
   height: 18px;
-  opacity: 0;
   line-height: 18px;
   padding-left: 5px;
 }
@@ -503,12 +591,16 @@ html body .wrapper .content .content-main .goods-info .goods .product-card-wrapp
   border-left: 9px solid #7359BE;
 }
 
+html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-price .invisible {
+  opacity: 0;
+}
+
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-price .visible {
   opacity: 1;
 }
 
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-description {
-  margin: 9px 0 13px;
+  margin: 7px 0 14px;
 }
 
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .tags {
@@ -519,12 +611,20 @@ html body .wrapper .content .content-main .goods-info .goods .product-card-wrapp
 
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .tags .product-tag {
   margin-right: 9px;
-  width: 63px;
+  padding: 0 8px;
   height: 19px;
   color: #FFFFFF;
   text-align: center;
   font-size: 1.2rem;
-  line-height: 1.9rem;
+  line-height: 1.7rem;
+}
+
+html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .tags .discount-col {
+  background: #FFA555;
+}
+
+html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .tags .bestseller-col {
+  background: #7359BE;
 }
 
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .link-prod-card {
