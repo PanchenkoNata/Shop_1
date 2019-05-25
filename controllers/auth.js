@@ -121,12 +121,12 @@ const logout = async (req, res,next) => {
 };
 
 const homeView = async (req, res, next) => {
-	res.render('home', { title: 'Hello user', });
+	res.render('home', { title: 'Hello user', locales: i18n.getLocales() });
 };
 
 const homeViewLang = async (req, res, next) => {
 	i18n.setLocale(req, req.params.lang);
-	res.render('home', { title: 'Hello', });
+	res.render('home', { title: 'Hello', locales: i18n.getLocales() } );
 };
 
 const adminView = async (req, res, next) => {

@@ -4,6 +4,8 @@
 	"ShippingPay": "Shipping and payment",
 	"Contacts": "Contacts",
 	"Language": "English",
+	"en" : "English",
+	"ru" : "Russian",
 	"LogIn": "Log In",
 	"LogOut": "LogOut",
 	"SignUp": "Sign Up",

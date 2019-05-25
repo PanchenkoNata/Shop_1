@@ -131,7 +131,6 @@ html body .wrapper .header .header-top .nav {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  border: 1px solid red;
 }
 
 html body .wrapper .header .header-top .nav ul {
@@ -157,6 +156,61 @@ html body .wrapper .header .header-top .nav ul li a {
 
 html body .wrapper .header .header-top .nav ul li:last-child {
   padding-right: 0;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language {
+  position: relative;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language .language {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language .language img {
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+  margin-top: 12px;
+  margin-right: 8px;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language .language::after {
+  display: block;
+  position: absolute;
+  content: '\25BC';
+  font-size: 7px;
+  color: #FFFFFF;
+  right: -15px;
+  top: 5px;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language .locales {
+  position: absolute;
+  top: 3.6rem;
+  left: 0px;
+  width: 135px;
+  padding: 10px;
+  background: #E5E5E5;
+  opacity: 0;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language .locales .locales-list {
+  display: block;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language .locales .locales-list li {
+  padding: 0;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language .locales .locales-list li a {
+  color: #313131;
+}
+
+html body .wrapper .header .header-top .nav ul .choosed-language .visible {
+  opacity: 1;
 }
 
 html body .wrapper .header .header-bottom {
@@ -612,14 +666,6 @@ html body .wrapper .content .content-main .goods-info .goods .product-card-wrapp
   border-left: 9px solid #7359BE;
 }
 
-html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-price .invisible {
-  opacity: 0;
-}
-
-html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-price .visible {
-  opacity: 1;
-}
-
 html body .wrapper .content .content-main .goods-info .goods .product-card-wrapper .product-card .prod-description {
   margin: 7px 0 14px;
 }
@@ -660,5 +706,13 @@ html body .wrapper .footer .footer-top {
 html body .wrapper .footer .footer-bottom {
   height: 4.99rem;
   background: #EAEEF9;
+}
+
+html body .invisible {
+  opacity: 0;
+}
+
+html body .visible {
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */
