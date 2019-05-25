@@ -372,6 +372,27 @@ html body .wrapper .content .content-main .left-nav .filters .filter .filter-ite
   color: #939393;
 }
 
+html body .wrapper .content .content-main .left-nav .filters .filter .price-values {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 26px;
+  text-align: center;
+  line-height: 3.3rem;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .price-values .min-price, html body .wrapper .content .content-main .left-nav .filters .filter .price-values .max-price {
+  width: 100px;
+  height: 33px;
+  background: #FCFCFC;
+  border: 1px solid #F3F2F2;
+}
+
+html body .wrapper .content .content-main .left-nav .filters .filter .price-values .min-price {
+  margin-right: 34px;
+}
+
 html body .wrapper .content .content-main .left-nav .filters .filter .price-slider {
   position: relative;
   height: 25px;
@@ -427,7 +448,7 @@ html body .wrapper .content .content-main .left-nav .filters .filter .price-slid
 
 html body .wrapper .content .content-main .left-nav .filters .filter.filter-price {
   background: #FFFFFF;
-  padding-top: 325px;
+  padding-top: 307px;
 }
 
 html body .wrapper .content .content-main .left-nav .filters ul .filtre-item .filter-header {

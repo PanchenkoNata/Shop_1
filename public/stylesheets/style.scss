@@ -319,7 +319,21 @@ html {
 									}
 								}
 								.price-values {
+									display: flex;
+									margin-top: 16px;
+									margin-bottom: 26px;
+									text-align: center;
+									line-height: 3.3rem;
 
+									.min-price, .max-price {
+										width: 100px;
+										height: 33px;
+										background: #FCFCFC;
+										border: 1px solid #F3F2F2;
+									}
+									.min-price {
+										margin-right: 34px;
+									}
 								}
 								.price-slider {
 									position: relative;
@@ -372,7 +386,7 @@ html {
 								}
 								&.filter-price {
 									background: #FFFFFF;
-									padding-top: 325px;
+									padding-top: 307px;
 								}
 							}
 							ul {
