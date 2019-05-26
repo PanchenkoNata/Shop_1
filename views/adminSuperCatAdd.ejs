@@ -33,7 +33,7 @@
 										<ul class='categories-list'>
 											<% categories.forEach(function(category) { %>
 												<li data-categoryId='<%= category.id %>' data-categoryname='<%= category.name %>'>
-													<input type='checkbox' name='<%= category.name %>' value='<%= category.name %>'>
+													<input type='checkbox' name='<%= category.name %>' value='<%= category.id %>'>
 													<label for='<%= category.name %>'><%= category.name %></label>
 												</li>
 											<% }); %>

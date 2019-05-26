@@ -73,41 +73,23 @@ const addSuperCategAction = async (req, res, next) => {
 	const name = req.body.name;
 	const superCategoryObj = {
 		name: name,
+		categories: []
 	}
 	try {
 		const categories = await Category.find({}).sort({ name: 1 });
 
-		let superCatCategories = [];
-		console.log("______111____");
-		console.log(superCatCategories);
 		categories.forEach( (category) => {
-			console.log("_b_forEach____");
 			const key = category.name;
-			
-			console.log(key);
 			if ( key in req.body ) {
-				console.log('___b_if__');
-				console.log(key);
-				superCatCategories.push(req.body[key]);
-				console.log(superCatCategories);
-				console.log('___e_if__');
+				superCategoryObj.categories.push(req.body[key]);
 			};
-			console.log('_e_forEach__')
 		});
-		console.log('_______222____');
-		
-		console.log('(((');
-		console.log(req.body);
-		console.log('888');
-		console.log(superCatCategories);
-		console.log(')))');
 
 		if ( typeof(name) != 'string' ) {
 			throw new Error('The data is not a string');
 		}
 		
 		const superCaregory = await SuperCategory.findOne({ 'name': name});
-		// const categories = await Category.find({}).sort({ name: 1 });
 		
 		if (superCaregory) {
 			throw new Error('This category already exists');
