@@ -22,14 +22,14 @@
 					<%- include('adminLeftNav'); -%>
 					<div class='content-info'>
 						<h2><%= __(title) %></h2>
-						<div><a class='link-block' href='/admin/categories/add'>Add category</a></div>
+						<div><a class='link-block' href='/admin/superCategories/add'>Add a new superCategory</a></div>
 						<div>
-							<p>All categories:</p>
+							<p>All superCategories:</p>
 							<ul class='categories-list'>
-								<% categories.forEach(function(category) { %>
-									<li data-categoryId='<%= category.id %>' data-categoryname='<%= category.name %>'>
-										<span><%= category.name %></span>
-										<a class='update' href='/admin/categories/update/<%= category.name %>'>Update</a>
+								<% superCategories.forEach(function(superCategory) { %>
+									<li data-supercategoryId='<%= superCategory.id %>' data-supercategoryname='<%= superCategory.name %>'>
+										<span><%= superCategory.name %></span>
+										<a class='update' href='/admin/superCategories/update/<%= superCategory.name %>'>Update</a>
 										<a class='delete' href='#'>Delete</a>
 									</li>
 								<% }); %>

@@ -1,24 +1,22 @@
 .content, .content-info {
-  padding: 20px;
-}
+  padding: 20px; }
 
-.content-info .all-categories li {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.admin-content-main {
   display: flex;
-}
-
-.content-info .all-categories li .update {
-  padding: 10px 20px;
-  margin-right: 20px;
-  background-color: #FFFF88;
-}
-
-.content-info .all-categories li .delete {
-  padding: 5px;
-  background-color: #FF0000;
-  color: #FFFFFF;
-}
+  justify-content: flex-start; }
+  .admin-content-main .content-info {
+    margin-left: 80px;
+    padding-top: 0; }
+    .admin-content-main .content-info .categories-list li {
+      display: flex;
+      margin-bottom: 5px;
+      font-size: 1.8rem; }
+      .admin-content-main .content-info .categories-list li .update {
+        margin-left: 20px;
+        color: #0000FF; }
+      .admin-content-main .content-info .categories-list li .delete {
+        margin-left: 20px;
+        color: #FF0000; }
 
 .success-info {
   position: absolute;
@@ -29,14 +27,11 @@
   padding: 20px;
   background-color: #79bd79;
   z-index: 100;
-  opacity: 0;
-}
-
-.success-info .successEnd {
-  margin: 30px auto;
-}
+  opacity: 0; }
+  .success-info .successEnd {
+    margin: 30px auto; }
 
 .success-active {
-  opacity: 1;
-}
+  opacity: 1; }
+
 /*# sourceMappingURL=adminStyle.css.map */

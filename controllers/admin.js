@@ -6,6 +6,7 @@ const i18n = require('i18n');
 const config = require('config');
 
 const Category = require('models/category');
+const SuperCategory = require('models/superCategory');
 
 const adminView = async (req, res, next) => {
 	res.render('admin', { title: 'Hello Admin', data: {} });
@@ -16,7 +17,11 @@ const categView = async (req, res, next) => {
 	console.log(categories);
 	res.render('adminCategories', { title: 'Categories', categories: categories,  data: {}, error: false });
 };
-
+const superCategView = async (req, res, next) => {
+	const superCategories = await SuperCategory.find({}).sort({ name: 1, });
+	console.log(superCategories);
+	res.render('adminSuperCategories', { title: 'SuperCategories', superCategories: superCategories,  data: {}, error: false });
+};
 // const categAction = async (req, res, next) => {
 // 	const addDocumInput = req.body.addDocumInput;
 // 	console.log(addDocumInput);
@@ -32,8 +37,11 @@ const categView = async (req, res, next) => {
 // };
 
 const addCategView = async (req, res, next) => {
-
 	res.render('adminCatAdd', { title: 'Add category', data: {}, error: false, success: false });
+};
+const addSuperCategView = async (req, res, next) => {
+	const categories = await Category.find({}).sort({ name: 1 });
+	res.render('adminSuperCatAdd', { title: 'Add superCategory', categories: categories, data: {}, error: false, success: false });
 };
 
 const addCategAction = async (req, res, next) => {
@@ -48,7 +56,6 @@ const addCategAction = async (req, res, next) => {
 		}
 		
 		const caregory = await Category.findOne({ 'name': name});
-		
 		if (caregory) {
 			throw new Error('This category already exists');
 		}
@@ -59,6 +66,35 @@ const addCategAction = async (req, res, next) => {
 		res.render('adminCatAdd', { title: 'Add category', data: categoryObj, error: false, success: true, });
 	} catch (error) {
 		res.render('adminCatAdd', { title: 'Add category', data: categoryObj, error: error.message, success: false });
+	}	
+};
+const addSuperCategAction = async (req, res, next) => {
+	const { name } = req.body;
+	console.log(req.body);
+
+	const categoryObj = {
+		name: name,
+	}
+
+	try {
+		if ( typeof(name) != 'string' ) {
+			throw new Error('The data is not a string');
+		}
+		
+		const superCaregory = await SuperCategory.findOne({ 'name': name});
+		const categories = await Category.find({}).sort({ name: 1 });
+		
+		if (superCaregory) {
+			throw new Error('This category already exists');
+		}
+
+		const newSuperCategory = new SuperCategory(categoryObj);
+
+		await newSuperCategory.save();
+		
+		res.render('adminSuperCatAdd', { title: 'Add SuperCategory', categories: categories, data: categoryObj, error: false, success: true, });
+	} catch (error) {
+		res.render('adminSuperCatAdd', { title: 'Add superCategory', categories: categories, data: categoryObj, error: error.message, success: false });
 	}	
 };
 
@@ -113,9 +149,16 @@ const updCategAction = async (req, res, next) => {
 
 
 module.exports.adminView = adminView;
+
 module.exports.categView = categView;
 module.exports.addCategView = addCategView;
 module.exports.addCategAction = addCategAction;
 module.exports.updCategView = updCategView;
 module.exports.updCategAction = updCategAction;
+
+module.exports.superCategView = superCategView;
+module.exports.addSuperCategView = addSuperCategView;
+module.exports.addSuperCategAction = addSuperCategAction;
+// module.exports.updSuperCategView = updSuperCategView;
+// module.exports.updSuperCategAction = updSuperCategAction;
 

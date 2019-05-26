@@ -2,26 +2,35 @@
 	padding: 20px;
 }
 
-.content-info {
-	a {
-		// height: 20px;
-	}
-	.all-categories {
-		li {
-			display: flex;
-			.update {
-				padding: 10px 20px;
-				margin-right: 20px;
-				background-color: #FFFF88;
-			}
-			.delete {
-				padding: 5px;
-				background-color: #FF0000;
-				color: #FFFFFF;
+.admin-content-main {
+	display: flex;
+	justify-content: flex-start;
+
+	.content-info {
+		margin-left: 80px;
+		padding-top: 0;
+		a {
+			// height: 20px;
+		}
+		.categories-list {
+			li {
+				display: flex;
+				margin-bottom: 5px;
+				font-size: 1.8rem;
+				// color: red;
+				.update {
+					margin-left: 20px;
+					color: #0000FF;
+				}
+				.delete {
+					margin-left: 20px;
+					color: #FF0000;
+				}
 			}
 		}
 	}
 }
+
 .success-info{
 	position: absolute;
 	top: 200px;

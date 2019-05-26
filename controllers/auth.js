@@ -72,12 +72,12 @@ const signupAction = async (req, res, next) => {
 
 		res.render('success', { title: 'Your singUp is successeful', });
 	} catch (error) {
-		res.render('signup', { title: 'Sign Up', data: personObj, error: error.message, });
+		res.render('signup', { title: 'Log In', data: personObj, error: error.message, });
 	}
 };
 
 const loginView = async (req, res, next) => {
-	res.render('login', { title: 'Sign Up', data: {}, error: false });
+	res.render('login', { title: 'Log In', data: {}, error: false });
 };
 
 const loginAction = async (req, res, next) => {
@@ -87,6 +87,10 @@ const loginAction = async (req, res, next) => {
 		password: password,
 	};
 
+	const data = {
+		email: email,
+	};
+	
 	try {
 		validateSchema(LoginSchema, loginObj);
 
@@ -97,15 +101,14 @@ const loginAction = async (req, res, next) => {
 
 		const isPasswordTrue = await bcrypt.compare(password, user.person.password);
 		if (!isPasswordTrue) {
-			throw new Error('You input wrong password');
+			throw new Error('You input wrong data');
 		};
-
+		
 		req.session.userId = user.id;
 		res.redirect('/home');
 
 	} catch (error) {
-		console.log(error.message);
-		res.render('login', { title: 'Sign Up', data: {}, error: error.message });
+		res.render('login', { title: 'Log In', data: data, error: error.message });
 	}
 };
 
@@ -120,13 +123,13 @@ const logout = async (req, res,next) => {
 	})
 };
 
-const homeView = async (req, res, next) => {
-	res.render('home', { title: 'Hello user', locales: i18n.getLocales() });
+const catalogView = async (req, res, next) => {
+	res.render('catalog', { title: 'Hello user', locales: i18n.getLocales() });
 };
 
-const homeViewLang = async (req, res, next) => {
+const catalogViewLang = async (req, res, next) => {
 	i18n.setLocale(req, req.params.lang);
-	res.render('home', { title: 'Hello', locales: i18n.getLocales() } );
+	res.render('catalog', { title: 'Hello', locales: i18n.getLocales() } );
 };
 
 const adminView = async (req, res, next) => {
@@ -137,7 +140,9 @@ module.exports.signupView = signupView;
 module.exports.signupAction = signupAction;
 module.exports.loginView = loginView;
 module.exports.loginAction = loginAction;
-module.exports.homeView = homeView;
 module.exports.logout = logout;
 module.exports.adminView = adminView;
-module.exports.homeViewLang = homeViewLang;
+module.exports.catalogView = catalogView;
+module.exports.catalogViewLang = catalogViewLang;
+// module.exports.homeView = homeView;
+// module.exports.homeViewLang = homeViewLang;

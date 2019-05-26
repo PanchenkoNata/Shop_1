@@ -28,14 +28,14 @@
 												<ul class='locales-list'>
 													<% locales.forEach(function(locale) { %>
 														<li data-locale='<%= locale %>'>
-															<a href='/home/<%= locale %>'><%= __(locale) %></a>
+															<a href='/home/catalog/<%= locale %>'><%= __(locale) %></a>
 														</li>
 													<% }); %>
 												</ul>
 											</div>
 										</li>
                     <li><a href='/login' class='link-block'><%= __('LogIn') %></a></li>
-                    <li><a href='/logout' class='link-block'><%= __('SignUp') %></a></li>
+                    <li><a href='/signup' class='link-block'><%= __('SignUp') %></a></li>
                   </ul>
                 </nav>
               </div>

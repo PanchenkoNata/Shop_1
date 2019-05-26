@@ -4,8 +4,8 @@
 	"ShippingPay": "Shipping and payment",
 	"Contacts": "Contacts",
 	"Language": "English",
-	"en" : "English",
-	"ru" : "Russian",
+	"en": "English",
+	"ru": "Russian",
 	"LogIn": "Log In",
 	"LogOut": "LogOut",
 	"SignUp": "Sign Up",
@@ -30,5 +30,8 @@
 	"Logout": "Logout",
 	"Express": "Express",
 	"Add category": "Add category",
-	"Update category": "Update category"
+	"Update category": "Update category",
+	"SuperCategories": "SuperCategories",
+	"Add superCategory": "Add superCategory",
+	"Add SuperCategory": "Add SuperCategory"
 }

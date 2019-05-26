@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= __(title) %></title>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		<meta charset='utf-8'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link rel='stylesheet' type='text/css' href='/stylesheets/style.css'>
+		<link rel='stylesheet' type='text/css' href='/stylesheets/adminStyle.css'>
+	</head>
+	<body>
+		<div class='wrapper'>
+			<%- include('adminHeader'); -%>
+			<div class='content container'>
+				<ul class="breadcrumb">
+					<li><a href='/admin'><%= __('Admin') %></a></li>
+					<li><a href='/admin/SuperCategories'>SuperCategories</a></li>
+					<li><a href='/admin/SuperCategories/add'><%= __(title) %></a></li>
+				</ul>
+				
+				<div class='admin-content-main'>
+					<%- include('adminLeftNav'); -%>
+					<div class='content-info'>
+						<div class='content-header'>
+							<h2><%= __(title) %></h2>
+							<a class='link-block' href='/admin/superCategories/add'>Add SuperCategory</a>
+
+							<div class='addDocum'>
+								<form  class='add-input' action='' method='POST'>
+									<label> Input the name of new superCategory: <br/>
+										<input type='text' name='name' value='<%= data.name %>'>
+										<ul class='categories-list'>
+											<% categories.forEach(function(category) { %>
+												<li data-categoryId='<%= category.id %>' data-categoryname='<%= category.name %>'>
+													<input type='checkbox' name='<%= category.name %>' value='<%= category.name %>'>
+													<label for='<%= category.name %>'><%= category.name %></label>
+												</li>
+											<% }); %>
+											</ul> 
+										<button type='submit'>Submit</button>
+									</label>
+								</form>
+
+								<% if (error) { %>
+								<div class='error-info'>
+									<p class='danger'>Error! <%= error %> You cannot add the category '<%= data.name %>' </p>
+								</div>
+								<% } %>
+								<% if (success) { %>
+								<div class=''>
+									<p class='success'>Well done! The category '<%= data.name %> was added successefuly'</p>
+								</div>
+								<% } %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div>
+			<!-- <a href='/logout'>LogOut</a> -->
+		</div>
+	</body>
+</html>
