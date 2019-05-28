@@ -26,28 +26,37 @@
 						<p>You will update superCategory:</p>
 						<!-- <p class='updatedCategory'></p> -->
 						<form action='' method='POST' class='update_supercategory'>
-							<label>from: <input type='text' name='updated_supercat_name' value='<%= data.updated_supercat_name %>'></label>
+							<label>from: <input type='text' name='updated_supercat_name' value='<%= superCaregory.name %>'></label>
 							<label>to: <input type='text' name='new_supercat_name' value='<%= data.new_supercat_name %>'>
 							</label>
+
+							<select id="multiple" class='multiple-select' multiple>
+								<option value="value 1">Value 1</option>
+								<option value="value 2">Value 2</option>
+								<option value="value 3">Value 3</option>
+							</select>
+
 
 							<div class='form-group'>
 								<ul class='categories-list'>
 									<% categories.forEach(function(category) { %>
 										<li data-categoryname='<%= category.name %>' >
-											<input class='category-checkbox' data-categoryid='<%= category.id %>' type='checkbox' name='<%= category.name %>' value='<%= category.id %>'>
-											<label for='<%= category.name %>'><%= category.name %></label>
+											<input class='category-checkbox' data-categoryid='<%= category.id %>' type='checkbox' name='<%= category.id %>' value='<%= category.id %>'>
+											<label for='<%= category.id %>'><%= category.name %></label>
 										</li>
 									<% }); %>
 								</ul>
 							</div>
 
-							<ul class='supercategoryUpdated' data-supercategory='<%= superCaregory.name %>'>
+							<button type='submit' class='update'>Update</button>
+
+							<ul class='supercategoryUpdated' data-supercategory='<%= superCaregory.id %>'>
 								<% superCategoryCategories.forEach(function(categoryFromSuperCat) { %>
-									<li data-category_from_super_cat_id='<%= categoryFromSuperCat.id %>' class='categoryFromSuperCat'></li>
+									<li data-category_from_super_cat_id='<%= categoryFromSuperCat %>' class='categoryFromSuperCat'></li>
 								<% }); %>
 							</ul>
 
-							<button type='submit' class='update'>Update</button>
+							
 						</form>
 						<% if (error) { %>
 						<div class='error-info'>

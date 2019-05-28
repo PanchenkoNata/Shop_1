@@ -12,12 +12,12 @@ router.get('/superCategories', admin.superCategView);
 
 router.get('/categories/add', admin.addCategView);
 router.post('/categories/add', admin.addCategAction);
-router.get('/categories/update/:name', admin.updCategView);
-router.post('/categories/update/:name', admin.updCategAction);
+router.get('/categories/update/:id', admin.updCategView);
+router.post('/categories/update/:id', admin.updCategAction);
 
 router.get('/superCategories/add', admin.addSuperCategView);
 router.post('/superCategories/add', admin.addSuperCategAction);
-router.get('/superCategories/update/:name', admin.updSuperCategView);
+router.get('/superCategories/update/:id', admin.updSuperCategView);
 // router.post('/superCategories/update/:name', admin.updSuperCategAction);
 
 

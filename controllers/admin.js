@@ -150,14 +150,15 @@ const updCategAction = async (req, res, next) => {
 };
 
 const updSuperCategView = async (req, res, next) => {
-	const updated_supercat_name = req.params.name;
+	const { id } = req.params;
 	const dataObj = {
-		updated_supercat_name: updated_supercat_name,
+		updated_supercat_name: '',
 		new_supercat_name: ''
 	}
+	console.log(req.params);
 	try {
 		const categories = await Category.find({}).sort({ name: 1 });
-		const superCaregorytest = await SuperCategory.findOne({ name: updated_supercat_name });
+		const superCaregorytest = await SuperCategory.findOne({ _id: id });
 		if ( !superCaregorytest ) {
 			throw new Error('This superCaregory don`t exist');
 		};
