@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Review = require('./schemas/review');
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const generalSchema = new Schema({
 	name: {

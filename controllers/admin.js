@@ -14,27 +14,12 @@ const adminView = async (req, res, next) => {
 
 const categView = async (req, res, next) => {
 	const categories = await Category.find({}).sort({ name: 1, });
-	console.log(categories);
 	res.render('adminCategories', { title: 'Categories', categories: categories,  data: {}, error: false });
 };
 const superCategView = async (req, res, next) => {
 	const superCategories = await SuperCategory.find({}).sort({ name: 1, });
-	console.log(superCategories);
 	res.render('adminSuperCategories', { title: 'SuperCategories', superCategories: superCategories,  data: {}, error: false });
 };
-// const categAction = async (req, res, next) => {
-// 	const addDocumInput = req.body.addDocumInput;
-// 	console.log(addDocumInput);
-// 	try {
-// 		const data = {};
-// 	data.documType = 'category';
-// 	data.documName = addDocumInput;
-// 	console.log(data);
-// 	res.render('adminCategories', { title: 'Categories', data: data, error: false });
-// 	} catch (error) {
-// 		res.render('adminCategories', { title: 'Categories', data: data, error: error.message });
-// 	}
-// };
 
 const addCategView = async (req, res, next) => {
 	res.render('adminCatAdd', { title: 'Add category', data: {}, error: false, success: false });
@@ -70,7 +55,7 @@ const addCategAction = async (req, res, next) => {
 };
     
 const addSuperCategAction = async (req, res, next) => {
-	const name = req.body.name;
+	const { name } = req.body;
 	const superCategoryObj = {
 		name: name,
 		categories: []
@@ -107,7 +92,6 @@ const addSuperCategAction = async (req, res, next) => {
 
 const updCategView = async (req, res, next) => {
 	const updated_cat_name = req.params.name;
-	console.log(req.params.name);
 	const dataObj = {
 		updated_cat_name: updated_cat_name,
 		new_cat_name: ''
@@ -140,7 +124,8 @@ const updCategAction = async (req, res, next) => {
 			throw new Error(`The category whis name '${updated_cat_name}' doesn't exist`);
 		};
 		if (newCategory) {
-			throw new Error(`You cannot change the name of category '${updated_cat_name}' to '${new_cat_name}' because the category with name '${new_cat_name}' already exist`)
+			throw new Error(`You cannot change the name of category '${updated_cat_name}' 
+						to '${new_cat_name}' because the category with name '${new_cat_name}' already exist`)
 		};
 
 		updatedCaregory.name = new_cat_name;
@@ -148,10 +133,57 @@ const updCategAction = async (req, res, next) => {
 
 		console.log('update was successefuly');
 		
-		res.render('adminCatUpdate', { title: 'Update category', data: dataObj, error: false, success: true });
+		res.render('adminCatUpdate', { 
+																	title: 'Update category', 
+																	data: dataObj, 
+																	error: false, 
+																	success: true 
+		});
 	} catch (error) {
-		res.render('adminCatUpdate', { title: 'Update category', data: dataObj, error: error.message, success: false });
+		res.render('adminCatUpdate', { 
+																	title: 'Update category', 
+																	data: dataObj, 
+																	error: error.message, 
+																	success: false 
+		});
 	}	
+};
+
+const updSuperCategView = async (req, res, next) => {
+	const updated_supercat_name = req.params.name;
+	const dataObj = {
+		updated_supercat_name: updated_supercat_name,
+		new_supercat_name: ''
+	}
+	try {
+		const categories = await Category.find({}).sort({ name: 1 });
+		const superCaregorytest = await SuperCategory.findOne({ name: updated_supercat_name });
+		if ( !superCaregorytest ) {
+			throw new Error('This superCaregory don`t exist');
+		};
+		console.log(superCaregorytest);
+		console.log(superCaregorytest.categories);
+		res.render('adminSuperCatUpdate', { 
+																			title: 'Update superCategory', 
+																			superCaregory: superCaregorytest,
+																			superCategoryCategories: superCaregorytest.categories,
+																			categories: categories, 
+																			data: dataObj, 
+																			error: false, 
+																			success: false 
+		});
+	} catch (error) {
+		res.render('adminSuperCatUpdate', { 
+																			title: 'Update superCategory', 
+																			superCaregory: {},
+																			superCategoryCategories: [],
+																			categories: [], 
+																			data: dataObj, 
+																			error: error.message, 
+																			success: false 
+		});
+	};
+	
 };
 
 
@@ -166,6 +198,6 @@ module.exports.updCategAction = updCategAction;
 module.exports.superCategView = superCategView;
 module.exports.addSuperCategView = addSuperCategView;
 module.exports.addSuperCategAction = addSuperCategAction;
-// module.exports.updSuperCategView = updSuperCategView;
+module.exports.updSuperCategView = updSuperCategView;
 // module.exports.updSuperCategAction = updSuperCategAction;
 

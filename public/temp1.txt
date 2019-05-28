@@ -2,3 +2,8 @@
 remove from 
 ligin.ejs 
 <button class="btn" type="submit">Log In with Facebook</button>  (line 20)
+
+
+signup.ejs
+        <button class="btn" type="submit">Sign Up with Facebook</button> (line45)
+

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const personSchema = require('./schemas/person')
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const generalSchema = new Schema ({
 	person: personSchema,
