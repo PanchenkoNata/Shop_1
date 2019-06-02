@@ -18,7 +18,7 @@ router.post('/categories/update/:id', admin.updCategAction);
 router.get('/superCategories/add', admin.addSuperCategView);
 router.post('/superCategories/add', admin.addSuperCategAction);
 router.get('/superCategories/update/:id', admin.updSuperCategView);
-// router.post('/superCategories/update/:name', admin.updSuperCategAction);
+router.post('/superCategories/update/:id', admin.updSuperCategAction);
 
 
 

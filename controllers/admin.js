@@ -87,7 +87,7 @@ const addSuperCategAction = async (req, res, next) => {
 		res.render('adminSuperCatAdd', { title: 'Add SuperCategory', categories: categories, data: superCategoryObj, error: false, success: true, });
 	} catch (error) {
 		res.render('adminSuperCatAdd', { title: 'Add superCategory', categories: [], data: superCategoryObj, error: error.message, success: false });
-	}	
+	};
 };
 
 const updCategView = async (req, res, next) => {
@@ -131,7 +131,7 @@ const updCategAction = async (req, res, next) => {
 		updatedCaregory.name = new_cat_name;
 		await updatedCaregory.save();
 
-		console.log('update was successefuly');
+		console.log('category update was successefuly');
 		
 		res.render('adminCatUpdate', { 
 																	title: 'Update category', 
@@ -154,19 +154,16 @@ const updSuperCategView = async (req, res, next) => {
 	const dataObj = {
 		updated_supercat_name: '',
 		new_supercat_name: ''
-	}
-	console.log(req.params);
+	};
 	try {
 		const categories = await Category.find({}).sort({ name: 1 });
 		const superCaregorytest = await SuperCategory.findOne({ _id: id });
 		if ( !superCaregorytest ) {
 			throw new Error('This superCaregory don`t exist');
 		};
-		console.log(superCaregorytest);
-		console.log(superCaregorytest.categories);
 		res.render('adminSuperCatUpdate', { 
 																			title: 'Update superCategory', 
-																			superCaregory: superCaregorytest,
+																			superCategory: superCaregorytest,
 																			superCategoryCategories: superCaregorytest.categories,
 																			categories: categories, 
 																			data: dataObj, 
@@ -176,7 +173,7 @@ const updSuperCategView = async (req, res, next) => {
 	} catch (error) {
 		res.render('adminSuperCatUpdate', { 
 																			title: 'Update superCategory', 
-																			superCaregory: {},
+																			superCategory: {},
 																			superCategoryCategories: [],
 																			categories: [], 
 																			data: dataObj, 
@@ -184,7 +181,66 @@ const updSuperCategView = async (req, res, next) => {
 																			success: false 
 		});
 	};
-	
+};
+
+const updSuperCategAction = async (req, res, next) => {
+	const { id, updated_supercat_name, new_supercat_name } = req.body;
+	const dataObj = {
+		updated_supercat_name: updated_supercat_name,
+		new_supercat_name: new_supercat_name
+	};
+	const supercategoryObj = {
+		_id: id,
+		name: updated_supercat_name,
+		categories: []
+	}
+	console.log(req.body);
+	try {
+		if (typeof(updated_supercat_name) != 'string' && typeof(new_supercat_name) != 'string') {
+			throw new Error('The inputed data need to be string');
+		}
+		const categories = await Category.find({}).sort({ name: 1 });
+		let superCategorytest = await SuperCategory.findOne({ _id: id });
+		
+		if ( !superCategorytest ) {
+			throw new Error('Updated superCaregory don`t exist');
+		};
+		
+		if (categories) {
+			categories.forEach( (category) => {
+				const key = category.id;
+				if (key in req.body) {
+					supercategoryObj.categories.push(req.body[key]);
+				};
+			});
+		};
+
+		const newSuperCategory = new SuperCategory(supercategoryObj);
+		ssuperCategorytest = await newSuperCategory.save();
+
+		console.log(superCategorytest);
+		console.log(ssuperCategorytest.categories);
+		console.log('category update was successefuly');
+		res.render('adminSuperCatUpdate', { 
+																			title: 'Update superCategory', 
+																			superCategory: superCaregorytest,
+																			superCategoryCategories: superCaregorytest.categories,
+																			categories: categories, 
+																			data: dataObj, 
+																			error: false, 
+																			success: false 
+		});
+	} catch (error) {
+		res.render('adminSuperCatUpdate', { 
+																			title: 'Update superCategory', 
+																			superCategory: {},
+																			superCategoryCategories: [],
+																			categories: [], 
+																			data: dataObj, 
+																			error: error.message, 
+																			success: false 
+		});
+	};
 };
 
 
@@ -200,5 +256,4 @@ module.exports.superCategView = superCategView;
 module.exports.addSuperCategView = addSuperCategView;
 module.exports.addSuperCategAction = addSuperCategAction;
 module.exports.updSuperCategView = updSuperCategView;
-// module.exports.updSuperCategAction = updSuperCategAction;
-
+module.exports.updSuperCategAction = updSuperCategAction;
