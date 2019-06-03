@@ -1,9 +1,44 @@
-25/05/19
-remove from 
-ligin.ejs 
-<button class="btn" type="submit">Log In with Facebook</button>  (line 20)
+const { name } = req.body;
+	const superCategoryObj = {
+		name: name,
+		categories: []
+	}
+	try {
+		const categories = await Category.find({}).sort({ name: 1 });
+
+		categories.forEach( (category) => {
+			const key = category.name;
+			if ( key in req.body ) {
+				superCategoryObj.categories.push(req.body[key]);
+			};
+		});
+
+		if ( typeof(name) != 'string' ) {
+			throw new Error('The data is not a string');
+		}
+		
+		const superCaregory = await SuperCategory.findOne({ 'name': name});
+		
+		if (superCaregory) {
+			throw new Error('This category already exists');
+		}
+
+		const newSuperCategory = new SuperCategory(superCategoryObj);
+
+		await newSuperCategory.save();
+		
+		res.render('adminSuperCatAdd', { title: 'Add SuperCategory', categories: categories, data: superCategoryObj, error: false, success: true, });
+	} catch (error) {
+		res.render('adminSuperCatAdd', { title: 'Add superCategory', categories: [], data: superCategoryObj, error: error.message, success: false });
+	}	
 
 
-signup.ejs
-        <button class="btn" type="submit">Sign Up with Facebook</button> (line45)
+<button type='submit' class='update'><a href='/admin/superCategories/update/<%= superCategory.id %>'>Update</a></button>
 
+							
+
+	<ul class='supercategoryUpdated' data-supercategory='<%= superCategory.id %>'>
+								<% superCategoryCategories.forEach(function(categoryFromSuperCat) { %>
+									<li data-category_from_super_cat_id='<%= categoryFromSuperCat %>' class='categoryFromSuperCat'></li>
+								<% }); %>
+							</ul>

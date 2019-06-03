@@ -26,16 +26,9 @@
 						<p>You will update superCategory:</p>
 						<!-- <p class='updatedCategory'></p> -->
 						<form action='' method='POST' class='update_supercategory'>
-							<label>from: <input type='text' name='updated_supercat_name' value='<%= superCategory.name %>'></label>
+							<label>from: <input type='text' name='updated_supercat_name' value='<%= data.updated_supercat_name %>'></label>
 							<label>to: <input type='text' name='new_supercat_name' value='<%= data.new_supercat_name %>'>
 							</label>
-
-							<select id="multiple" class='multiple-select' multiple>
-								<option value="value 1">Value 1</option>
-								<option value="value 2">Value 2</option>
-								<option value="value 3">Value 3</option>
-							</select>
-
 
 							<div class='form-group'>
 								<ul class='categories-list'>
@@ -48,7 +41,7 @@
 								</ul>
 							</div>
 
-							<button type='submit' class='update'><a href='/admin/superCategories/update/<%= superCategory.id %>'>Update</a></button>
+							<button type='submit' class='update'>Update</a></button>
 
 							<ul class='supercategoryUpdated' data-supercategory='<%= superCategory.id %>'>
 								<% superCategoryCategories.forEach(function(categoryFromSuperCat) { %>

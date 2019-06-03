@@ -25,15 +25,15 @@
 						<h2><%= __(title) %></h2>
 						<p>You will update category:</p>
 						<!-- <p class='updatedCategory'></p> -->
-						<form action='' method='POST' class='update_category'>
-							<label>from: <input type='text' name='updated_cat_name' value='<%= data.updated_cat_name %>'></label>
+						<form action='' method='POST' class='update_category' name='category'>
+							<label>from: <input type='text' name='updated_cat_name' value='<%= data.updated_cat_name %>' disabled></label>
 							<label>to: <input type='text' name='new_cat_name' value='<%= data.new_cat_name %>'>
 							</label>
 							<button type='submit' class='update'>Update</button>
 						</form>
 						<% if (error) { %>
 						<div class='error-info'>
-							<p class='danger'>Error! <%= error %>! </p>
+							<p class='danger'>Error! <%= error %>! </p> 
 						</div>
 						<% } %>
 						<% if (success) { %>
