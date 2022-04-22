@@ -18,7 +18,7 @@
     "i18n-t": "^1.0.1",
     "mongoose": "^5.5.2",
     "morgan": "~1.9.0",
-    "nconf": "^0.10.0",
+    "nconf": "^0.11.4",
     "node-sass-middleware": "0.11.0"
   }
 }
